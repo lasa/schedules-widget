@@ -1,0 +1,132 @@
+@import 'normalize'
+@import 'bourbon'
+
+$scale: 0.75
+
+@import url('http://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700')
+
+body
+    background: #F4F3F3
+
+.wrap
+    margin: auto
+
+.widget
+    margin: auto
+    background: #F4F3F3
+    font-family: 'Roboto'
+
+    p
+        margin: 0
+        padding: 0
+
+    .upper 
+        background: #7C00CC
+        padding: 10px 0 0 0 
+        margin: 0
+        color: white
+
+        .no-school
+            text-align: center
+            font-size: 24px * $scale
+            color: #D7B1EF
+            padding: 70px 0 70px 0
+        
+        .no-schedule
+            display: none
+            
+        .lbl
+            color: #D7B1EF
+            font-size: 16px * $scale
+
+        .title
+            text-align: center
+            font:
+                weight: 300
+                size: 24px * $scale
+            padding-bottom: 5px * $scale
+
+        .cur-schedule
+            text-align: center
+            color: #E7D1F6
+            font:
+                weight: 300
+                size: 16px * $scale
+            margin-top: -4px
+            margin-bottom: 15px * $scale
+
+        .mins-remaining-wrap
+            text-align: center
+            margin-bottom: 25px * $scale
+
+            .mins-remaining
+                font:
+                    size: 100px * $scale
+                line-height: 1
+
+        .lower-items
+            text-align: justify
+            padding: 0 10px
+            max-width: 400px
+            margin: auto
+
+            .item-value
+                font-size: 16px * $scale
+
+            &:after
+                content: ''
+                display: inline-block
+                vertical-align: top
+                width: 99%
+
+            .item
+                white-space: nowrap
+                display: inline-block
+
+
+    .lower
+        background: #F4F3F3
+        padding: 10px 0 0 0
+        margin: 0
+
+        .title
+            text-align: center
+            font:
+                size: 16px * $scale
+                weight: 300
+            color: #8A949E
+            margin-bottom: 15px * $scale
+
+        .period
+            background: #ffffff
+            height: 50px * $scale
+            
+            margin-bottom: 10px
+            box-shadow: 0 2px 1px #E0DFDD
+
+            &:hover
+                background: darken(white, 2%)
+            
+            .container
+                max-width: 400px
+                margin: auto
+                padding: 0 (10px * $scale)
+            
+            .name
+                float: left
+                line-height: 50px * $scale
+                font:
+                    size: 19px * $scale
+                    weight: 500
+                color: #616B75
+
+            .detail
+                float: right
+                height: 50px * $scale
+                font-size: 14px * $scale
+                color: #8A949E
+                text-align: right
+                padding-top: 6px * $scale
+
+                .length
+                    font-weight: 300
