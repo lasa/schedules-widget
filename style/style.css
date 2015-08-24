@@ -367,6 +367,10 @@ body {
   margin: auto;
   background: #F4F3F3;
   font-family: "Roboto"; }
+  .widget p.disclaimer {
+    text-align: center;
+    color: #616B75;
+    font-size: 12px; }
   .widget p {
     margin: 0;
     padding: 0; }

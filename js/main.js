@@ -1,33 +1,52 @@
 (function ($){
-  
+
+    /**
+     * returns an array of all dates between two dates inclusive
+     * @param  {date} start [description]
+     * @param  {date} end   [description]
+     * @return {array<date>}       [description]
+     */
+    function getAllDays(start, end) {
+        var dates = [];
+
+        while(start <= end) {
+            dates.push(start);
+            start = new Date(start.setDate(
+                start.getDate() + 1
+            ));
+        }
+
+        return dates;
+    }
+
     // Setupt the default schedules
     var normalA = {
         name: "normal A schedule",
         days: ["mon"],
         periods: [
             {
-                name:   "1st",
+                name:   "0A",
                 start:  "8:15",
                 end:    "9:50"
             },
             {
-                name:   "2nd",
+                name:   "1st",
                 start:  "9:55",
                 end:    "11:25"
             },
             {
-                name:   "3rd",
+                name:   "2nd",
                 start:  "11:35",
                 end:    "13:05"
             },
             {
                 name:   "lunch",
                 start:  "13:05",
-                end:    "14:00"
+                end:    "14:05"
             },
             {
-                name:   "4th",
-                start:  "14:05",
+                name:   "3rd",
+                start:  "14:10",
                 end:    "15:40"
             }
         ]
@@ -38,167 +57,142 @@
         days: ["tue", "thu"],
         periods: [
             {
-                name:   "5th",
+                name:   "0B",
                 start:  "8:15",
                 end:    "9:50"
             },
             {
-                name:   "6th",
+                name:   "5th",
                 start:  "9:55",
                 end:    "11:25"
             },
             {
-                name:   "7th",
+                name:   "6th",
                 start:  "11:35",
                 end:    "13:05"
             },
             {
                 name:   "lunch",
                 start:  "13:05",
-                end:    "14:00"
+                end:    "14:05"
             },
             {
-                name:   "8th",
-                start:  "14:05",
+                name:   "7th",
+                start:  "14:10",
                 end:    "15:40"
-            },
-            {
-                name:   "9th",
-                start:  "15:45",
-                end:    "23:40"
             }
         ]
     };
 
     var advisory = {
-        name: "advisory schedule",
+        name: "forum schedule",
         days: ["wed"],
         periods: [
             {
-                name:   "1st",
+                name:   "0A",
                 start:  "8:15",
-                end:    "9:40"
+                end:    "9:45"
             },
             {
-                name:   "advisory",
-                start:  "9:45",
-                end:    "10:25"
+                name:   "1st",
+                start:  "9:50",
+                end:    "11:20"
+            },
+            {
+                name:   "forum",
+                start:  "11:25",
+                end:    "11:55"
             },
             {
                 name:   "2nd",
-                start:  "10:30",
-                end:    "11:50"
-            },
-            {
-                name:   "3rd",
-                start:  "11:55",
-                end:    "13:15"
+                start:  "12:00",
+                end:    "13:30"
             },
             {
                 name:   "lunch",
-                start:  "13:15",
-                end:    "14:10"
+                start:  "13:30",
+                end:    "14:05"
             },
             {
-                name:   "4th",
-                start:  "14:15",
+                name:   "3rd",
+                start:  "14:10",
                 end:    "15:40"
             }
         ]
     };
 
     var lateStart = {
-        name: "normal A schedule",
+        name: "late start schedule",
         days: [],
         periods: [
             {
-                name:   "5th",
-                start:  "8:15",
+                name:   "staff meetings",
+                start:  "8:00",
                 end:    "9:50"
             },
             {
-                name:   "6th",
-                start:  "9:55",
-                end:    "11:25"
+                name:   "5th",
+                start:  "10:00",
+                end:    "11:15"
             },
             {
-                name:   "7th",
-                start:  "11:35",
-                end:    "13:05"
+                name:   "0B",
+                start:  "11:20",
+                end:    "12:30"
             },
             {
                 name:   "lunch",
-                start:  "13:05",
-                end:    "14:00"
+                start:  "12:30",
+                end:    "13:05"
             },
             {
-                name:   "8th",
-                start:  "14:05",
+                name:   "6th",
+                start:  "13:10",
+                end:    "14:20"
+            },
+            {
+                name:   "7th",
+                start:  "14:25",
                 end:    "15:40"
             }
         ]
     };
 
     var genericFriday = {
-        name: "friday",
+        name: "friday A/B",
         days: ["fri"],
         periods: [
             {
-                name:   "1st/5th",
+                name:   "0A/0B",
                 start:  "8:15",
                 end:    "9:50"
             },
             {
-                name:   "2nd/6th",
+                name:   "1st/5th",
                 start:  "9:55",
                 end:    "11:25"
             },
             {
-                name:   "3rd/7th",
+                name:   "2nd/6th",
                 start:  "11:35",
                 end:    "13:05"
             },
             {
                 name:   "lunch",
                 start:  "13:05",
-                end:    "14:00"
+                end:    "14:05"
             },
             {
-                name:   "4th/8th",
-                start:  "14:05",
+                name:   "3rd/7th",
+                start:  "14:10",
                 end:    "15:40"
             }
         ]
     };
 
     var noSchool = {name: 'noschool',
-        periods: [
-            {
-                name:   "1st/5th",
-                start:  "8:15",
-                end:    "9:50"
-            },
-            {
-                name:   "2nd/6th",
-                start:  "9:55",
-                end:    "11:25"
-            },
-            {
-                name:   "3rd/7th",
-                start:  "11:35",
-                end:    "13:05"
-            },
-            {
-                name:   "lunch",
-                start:  "13:05",
-                end:    "14:00"
-            },
-            {
-                name:   "4th/8th",
-                start:  "14:05",
-                end:    "15:40"
-            }
-        ]};
+        periods: genericFriday.periods
+    };
 
     var week = {
         "mon" : normalA,
@@ -214,8 +208,12 @@
 
     // Summer
     var summerStart = new Date(2015, 6, 4);
-    var summerEnd = new Date(2015, 8, 24);
+    var summerEnd = new Date(2015, 8, 23);
+
+    var laborDay = new Date(2015, 8, 31);
+
     daysOff.push(getAllDays(summerStart, summerEnd));
+    daysOff.push(laborDay);
 
 
 
@@ -244,10 +242,10 @@
         $(".cur-schedule").text(currentSchedule().name);
 
         // Update Period Info
-        
+
         // Current Period
         var curPeriod = currentPeriod();
-        
+
         $("#in").text(curPeriod.name);
         $("#started").text(convertTime(curPeriod.start));
 
@@ -312,7 +310,7 @@
         var curSchedule = currentSchedule();
         var periodIndex = $.inArray(curPeriod, curSchedule.periods);
 
-        if(periodIndex === -1 || periodIndex == curSchedule.periods.length - 1) {
+        if(periodIndex === -1 || periodIndex === curSchedule.periods.length - 1) {
             return noSchool;
         }
 
@@ -335,7 +333,7 @@
 
         //total mintues so far
         var totalTime = hours*60 + minutes;
-        
+
         return totalTime;
     }
 
@@ -379,25 +377,5 @@
         }
         return period;
     }
-    /**
-     * returns an array of all dates between two dates inclusive
-     * @param  {date} start [description]
-     * @param  {date} end   [description]
-     * @return {array<date>}       [description]
-     */
-    function getAllDays(start, end) {
-        var dates = [];
-
-        while(start <= end) {
-            dates.push(start);
-            start = new Date(start.setDate(
-                start.getDate() + 1
-            ));
-        }
-
-        return dates;
-    }
-
-
 
 })(jQuery);
