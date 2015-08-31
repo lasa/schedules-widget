@@ -208,9 +208,9 @@
 
     // Summer
     var summerStart = new Date(2015, 6, 4);
-    var summerEnd = new Date(2015, 8, 23);
+    var summerEnd = new Date(2015, 7, 23);
 
-    var laborDay = new Date(2015, 8, 31);
+    var laborDay = new Date(2015, 8, 7);
 
     daysOff.push(getAllDays(summerStart, summerEnd));
     daysOff.push(laborDay);
@@ -263,6 +263,8 @@
     function updateScheduleHTML() {
         var curSchedule = currentSchedule();
         var $lowerItems = $(".lower");
+        $lowerItems.html("");
+        var $schedule = "";
         $.each(curSchedule.periods, function(i, period) {
             var periodHTML = '<div class="period"> <div class="container"> <p class="name">'+formatPeriodName(period.name)+'</p> <div class="detail"> <p class="times">'+convertTime(period.start) + ' – ' + convertTime(period.end) + '</p> <p class="length">' + periodLength(period) + ' minutes</p></div> </div></div>';
             $lowerItems.append(periodHTML);
@@ -360,7 +362,7 @@
         var days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
         var d = new Date();
 
-        if($.inArray(d, daysOff)) {
+        if($.inArray(d, daysOff) !== -1) {
             return noSchool;
         }
 
