@@ -22,32 +22,37 @@
     // Setupt the default schedules
     var normalA = {
         name: "normal A schedule",
-        days: ["mon"],
+        days: ["wed"],
         periods: [
             {
                 name:   "0A",
-                start:  "8:15",
-                end:    "9:50"
+                start:  "8:10",
+                end:    "9:40"
             },
             {
                 name:   "1st",
-                start:  "9:55",
-                end:    "11:25"
-            },
-            {
-                name:   "2nd",
-                start:  "11:35",
-                end:    "13:05"
+                start:  "9:45",
+                end:    "11:20"
             },
             {
                 name:   "lunch",
-                start:  "13:05",
-                end:    "14:05"
+                start:  "11:20",
+                end:    "12:10"
+            },
+            {
+                name:   "2nd",
+                start:  "12:15",
+                end:    "13:45"
+            },
+            {
+                name:   "FIT",
+                start:  "13:50",
+                end:    "14:15"
             },
             {
                 name:   "3rd",
-                start:  "14:10",
-                end:    "15:40"
+                start:  "14:20",
+                end:    "15:50s"
             }
         ]
     };
@@ -58,65 +63,70 @@
         periods: [
             {
                 name:   "0B",
-                start:  "8:15",
-                end:    "9:50"
+                start:  "8:10",
+                end:    "9:40"
             },
             {
                 name:   "5th",
-                start:  "9:55",
-                end:    "11:25"
-            },
-            {
-                name:   "6th",
-                start:  "11:35",
-                end:    "13:05"
+                start:  "9:45",
+                end:    "11:20"
             },
             {
                 name:   "lunch",
-                start:  "13:05",
-                end:    "14:05"
+                start:  "11:20",
+                end:    "12:10"
+            },
+            {
+                name:   "6th",
+                start:  "12:15",
+                end:    "13:45"
+            },
+            {
+                name:   "FIT",
+                start:  "13:50",
+                end:    "14:15"
             },
             {
                 name:   "7th",
-                start:  "14:10",
-                end:    "15:40"
+                start:  "14:20",
+                end:    "15:50s"
             }
         ]
     };
 
     var advisory = {
         name: "forum schedule",
-        days: ["wed"],
+        days: ["mon"],
         periods: [
             {
                 name:   "0A",
-                start:  "8:15",
-                end:    "9:45"
+                start:  "8:10",
+                end:    "9:40"
             },
             {
                 name:   "1st",
-                start:  "9:50",
+                start:  "9:45",
                 end:    "11:20"
             },
             {
-                name:   "forum",
-                start:  "11:25",
-                end:    "11:55"
+                name:   "lunch",
+                start:  "11:20",
+                end:    "12:10"
             },
             {
                 name:   "2nd",
-                start:  "12:00",
-                end:    "13:30"
+                start:  "12:15",
+                end:    "13:45"
             },
             {
-                name:   "lunch",
-                start:  "13:30",
-                end:    "14:05"
+                name:   "Forum",
+                start:  "13:50",
+                end:    "14:15"
             },
             {
                 name:   "3rd",
-                start:  "14:10",
-                end:    "15:40"
+                start:  "14:20",
+                end:    "15:50s"
             }
         ]
     };
@@ -164,28 +174,33 @@
         periods: [
             {
                 name:   "0A/0B",
-                start:  "8:15",
-                end:    "9:50"
+                start:  "8:10",
+                end:    "9:40"
             },
             {
                 name:   "1st/5th",
-                start:  "9:55",
-                end:    "11:25"
-            },
-            {
-                name:   "2nd/6th",
-                start:  "11:35",
-                end:    "13:05"
+                start:  "9:45",
+                end:    "11:20"
             },
             {
                 name:   "lunch",
-                start:  "13:05",
-                end:    "14:05"
+                start:  "11:20",
+                end:    "12:10"
+            },
+            {
+                name:   "2nd/6th",
+                start:  "12:15",
+                end:    "13:45"
+            },
+            {
+                name:   "FIT",
+                start:  "13:50",
+                end:    "14:15"
             },
             {
                 name:   "3rd/7th",
-                start:  "14:10",
-                end:    "15:40"
+                start:  "14:20",
+                end:    "15:50s"
             }
         ]
     };
@@ -195,9 +210,9 @@
     };
 
     var week = {
-        "mon" : normalA,
+        "mon" : advisory,
         "tue" : normalB,
-        "wed" : advisory,
+        "wed" : normalA,
         "thu" : normalB,
         "fri" : genericFriday,
         "sat" : noSchool,
@@ -208,7 +223,7 @@
 
     // Summer
     var summerStart = new Date(2015, 6, 4);
-    var summerEnd = new Date(2015, 7, 23);
+    var summerEnd = new Date(2015, 7, 22);
 
     var laborDay = new Date(2015, 8, 7);
 
