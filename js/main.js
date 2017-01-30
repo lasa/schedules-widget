@@ -95,7 +95,7 @@
     };
 
     var advisory = {
-        name: "forum schedule",
+        name: "homeroom schedule",
         days: ["mon"],
         periods: [
             {
@@ -119,7 +119,7 @@
                 end:    "13:45"
             },
             {
-                name:   "Forum",
+                name:   "Homeroom",
                 start:  "13:50",
                 end:    "14:15"
             },
